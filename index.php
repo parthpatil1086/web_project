@@ -460,9 +460,9 @@
 
   <nav>
     <a href="index.php#index_main"><i class="fas fa-home"></i> Home</a>
-    <a href="index.php#about-us"><i class="fas fa-circle-info"></i> About Us</a>
-    <a href="index.php#contact"><i class="fas fa-phone"></i> Contact</a>
     <a href="services.php"><i class="fas fa-car-side"></i> Services</a>
+    <a href="index.php#contact"><i class="fas fa-phone"></i> Contact</a>
+    <a href="index.php#about-us"><i class="fas fa-circle-info"></i> About Us</a>
 
     <div class="nav-right dropdown">
       <?php if (isset($_SESSION['username'])): ?>
