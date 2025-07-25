@@ -32,8 +32,14 @@ $result = $conn->query("SELECT * FROM cars ORDER BY id DESC");
   <title>Admin - Manage Cars</title>
   <style>
     body {
+      background-image: url('images/back1.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: cover;
       font-family: Arial, sans-serif;
-      background: #f8f8f8;
+      /* background: #f8f8f8; */
       padding: 30px;
     }
     .car-card {

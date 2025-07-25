@@ -45,7 +45,12 @@ if (!$car) {
   <title>Book Your Dream Car</title>
   <style>
     body {
-      background: url('file:///C:/Users/YourName/Pictures/car.jpg') no-repeat center center fixed;
+      /* background: url('file:///C:/Users/YourName/Pictures/car.jpg') no-repeat center center fixed; */
+      background-image: url('images/back2.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
       background-size: cover;
       min-height: 100vh;
       position: relative;
@@ -60,7 +65,6 @@ if (!$car) {
     }
     h1 {
       text-align: center;
-      padding: 20px 0;
       color: white;
       font-size: 28px;
     }
@@ -147,14 +151,35 @@ if (!$car) {
       background-color: #f8d7da;
       color: #721c24;
     }
+    .back-button {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        background-color: #007BFF;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 999;
+        margin-bottom: 80%;
+        transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+        background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
 
+  <a href="car_collection.php" class="back-button">← Back to Collections</a>
   <h1>Book Your Dream Car</h1>
 
   <div class="container">
-    <!-- Car Section -->
+    
     <div class="car-section">
       <img src="uploads/<?php echo htmlspecialchars($car['image']); ?>" alt="Car Image">
       <div class="car-info">
@@ -180,7 +205,7 @@ if (!$car) {
         <div class="message error">❌ <?php echo $booking_error; ?></div>
       <?php endif; ?>
 
-      <form method="POST">
+      <form method="POST" onsubmit="return validateForm()">
         <input type="hidden" name="car_id" value="<?php echo $car['id']; ?>">
         <div class="form-group">
           <label for="name">Your Name:</label>
@@ -190,10 +215,12 @@ if (!$car) {
           <label for="phone">Phone Number:</label>
           <input type="tel" name="phone" id="phone" required>
         </div>
+        
         <div class="form-group">
           <label for="email">Email:</label>
           <input type="email" name="email" id="email" required>
         </div>
+
         <div class="form-group">
           <label for="variant">Preferred Variant:</label>
           <select name="variant" id="variant" required>
@@ -203,10 +230,12 @@ if (!$car) {
             <option value="base">Base</option>
           </select>
         </div>
+
         <div class="form-group">
           <label for="city">Expected Delivery City:</label>
           <input type="text" name="city" id="city" required>
         </div>
+
         <div class="form-group">
           <label for="date">Booking Date:</label>
           <input type="date" name="date" id="date" required>
@@ -216,5 +245,34 @@ if (!$car) {
     </div>
   </div>
 
+  <script>
+  function validateForm() {
+    
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+
+    const namePattern = /^[A-Za-z\s]{2,}$/;
+    const phonePattern = /^[0-9]{10}$/;
+    const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+
+    if (!namePattern.test(name)) {
+      alert("Please enter a valid name (only letters, at least 2 characters).");
+      return false;
+    }
+
+    if (!phonePattern.test(phone)) {
+      alert("Please enter a valid 10-digit phone number.");
+      return false;
+    }
+
+    if (!emailPattern.test(email)) {
+      alert("Please enter a valid email address.");
+      return false;
+    }
+
+    return true;
+  }
+</script>
 </body>
 </html>

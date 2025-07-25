@@ -34,7 +34,7 @@ $result = $conn->query($sql);
         a.delete { color: red; text-decoration: none; font-weight: bold; }
         a.delete:hover { text-decoration: underline; }
 
-            .back-button {
+        .back-button {
         /* position: fixed; */
         top: 20px;
         left: 20px;

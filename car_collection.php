@@ -19,8 +19,12 @@ $result = $conn->query($sql);
   <title>Car Collection | First-Hand Cars</title>
   <style>
     body {
+      background-image: url('images/back2.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
       margin: 0;
       padding: 20px;
     }
@@ -106,7 +110,7 @@ $result = $conn->query($sql);
     }
 
   .back-button {
-    position: fixed;
+    position: absolute;
     top: 20px;
     left: 20px;
     background-color: #007BFF; /* Bootstrap blue */

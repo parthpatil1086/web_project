@@ -15,6 +15,12 @@ session_start();
   <title>Admin Dashboard</title>
   <style>
     body {
+      background-image: url('images/back1.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: cover;
       font-family: Arial, sans-serif;
       background-color: #f4f8fb;
       text-align: center;
