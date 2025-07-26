@@ -100,10 +100,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     .login-box button:hover {
       background-color: #a61c1c;
     }
+
+    .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #007BFF; 
+    color: white;
+    padding: 10px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 999;
+    transition: background-color 0.3s;
+  }
+
+  .back-button:hover {
+    background-color: #0056b3;
+  }
+
   </style>
 </head>
 <body>
 
+  <a href="index.php" class="back-button">← Back to Index</a>
+  
   <div class="login-box">
     <h2>Admin Login</h2>
     <form method="POST" action="">
