@@ -1,21 +1,12 @@
 <?php
 session_start();
 
-// // Optional: Check if admin is logged in
-// if (!isset($_SESSION['admin_logged_in'])) {
-//     header("Location: admin_login.php");
-//     exit();
-// }
-
-// Connect to DB
 $conn = new mysqli("localhost", "root", "", "car_showroom");
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch customer data
 $sql = "SELECT * FROM register_customer ORDER BY id DESC";
 $result = $conn->query($sql);
 ?>
@@ -72,7 +63,7 @@ $result = $conn->query($sql);
     position: fixed;
     top: 20px;
     left: 20px;
-    background-color: #007BFF; /* Bootstrap blue */
+    background-color: #007BFF;
     color: white;
     padding: 10px 16px;
     border-radius: 5px;

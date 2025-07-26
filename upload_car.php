@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     position: fixed;
     top: 20px;
     left: 20px;
-    background-color: #007BFF; /* Bootstrap blue */
+    background-color: #007BFF;
     color: white;
     padding: 10px 16px;
     border-radius: 5px;

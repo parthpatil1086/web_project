@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Our Services | First-Hand Cars</title>
 
-  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 
   <style>
@@ -125,16 +124,13 @@
 </head>
 <body>
 
-  <!-- Back to Home Button -->
   <a href="index.php" class="back-button"><i class="fas fa-arrow-left"></i> Back to Home</a>
 
-  <!-- Services Header -->
   <section class="services-section">
     <h1>Our Services</h1>
     <p>We provide full-service solutions for your vehicle buying journey</p>
   </section>
 
-  <!-- Services Cards -->
   <section class="services-grid">
     <div class="service-card">
       <i class="fas fa-car"></i>

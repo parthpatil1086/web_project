@@ -1,9 +1,7 @@
 <?php
-// Start session
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Sanitize and validate input
     $name     = trim(htmlspecialchars($_POST['fullname']));
     $email    = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
     $phone    = trim($_POST['phone']);
@@ -133,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
 
   <a href="index.php" class="back-button">← Back to Index</a>
-  
+
   <div class="register-box">
     <h2>New Customer Registration</h2>
     <form method="POST" action="">

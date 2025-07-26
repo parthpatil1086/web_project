@@ -6,21 +6,18 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-// Handle deletion in same file
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
     $delete_id = intval($_POST['delete_id']);
 
-    // Get image name
     $res = $conn->query("SELECT image FROM cars WHERE id = $delete_id");
     if ($res && $row = $res->fetch_assoc()) {
         $img_path = 'uploads/' . $row['image'];
-        if (file_exists($img_path)) unlink($img_path); // remove image
+        if (file_exists($img_path)) unlink($img_path);
     }
 
     $conn->query("DELETE FROM cars WHERE id = $delete_id");
 }
 
-// Get all cars
 $result = $conn->query("SELECT * FROM cars ORDER BY id DESC");
 ?>
 
@@ -38,7 +35,6 @@ $result = $conn->query("SELECT * FROM cars ORDER BY id DESC");
       background-attachment: fixed;
       background-size: cover;
       font-family: Arial, sans-serif;
-      /* background: #f8f8f8; */
       padding: 30px;
     }
     .car-card {
@@ -79,7 +75,7 @@ $result = $conn->query("SELECT * FROM cars ORDER BY id DESC");
     /* position: fixed; */
     top: 20px;
     left: 20px;
-    background-color: #007BFF; /* Bootstrap blue */
+    background-color: #007BFF;
     color: white;
     padding: 10px 16px;
     border-radius: 5px;
@@ -100,7 +96,7 @@ $result = $conn->query("SELECT * FROM cars ORDER BY id DESC");
     /* position: fixed; */
     top: 20px;
     right: 20px;
-    background-color: #007BFF; /* Bootstrap blue */
+    background-color: #007BFF;
     color: white;
     padding: 10px 16px;
     border-radius: 5px;

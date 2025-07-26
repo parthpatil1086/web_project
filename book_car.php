@@ -1,11 +1,9 @@
 <?php
-// Connect to DB
 $conn = new mysqli("localhost", "root", "", "car_showroom");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Process booking form submission
 $booking_success = false;
 $booking_error = "";
 
@@ -45,7 +43,6 @@ if (!$car) {
   <title>Book Your Dream Car</title>
   <style>
     body {
-      /* background: url('file:///C:/Users/YourName/Pictures/car.jpg') no-repeat center center fixed; */
       background-image: url('images/back2.png');
       background-size: cover;
       background-repeat: no-repeat;
@@ -195,7 +192,6 @@ if (!$car) {
       </div>
     </div>
 
-    <!-- Booking Form -->
     <div class="form-section">
       <h2>Booking Form</h2>
 

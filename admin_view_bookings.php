@@ -1,18 +1,15 @@
 <?php
-// admin_view_bookings.php
 $conn = new mysqli("localhost", "root", "", "car_showroom");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Handle deletion if requested
 if (isset($_GET['delete'])) {
     $id = intval($_GET['delete']);
     $conn->query("DELETE FROM bookings WHERE id = $id");
     echo "<script>alert('Booking deleted successfully.'); window.location='admin_view_bookings.php';</script>";
 }
 
-// Get all bookings
 $sql = "SELECT b.*, c.name AS car_name 
         FROM bookings b 
         JOIN cars c ON b.car_id = c.id 
@@ -38,7 +35,7 @@ $result = $conn->query($sql);
         /* position: fixed; */
         top: 20px;
         left: 20px;
-        background-color: #007BFF; /* Bootstrap blue */
+        background-color: #007BFF;
         color: white;
         padding: 10px 16px;
         border-radius: 5px;
