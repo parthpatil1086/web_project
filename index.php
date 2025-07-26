@@ -503,7 +503,6 @@
       current = (current + 1) % slides.length;
       slides[current].classList.add('active');
     }
-
     setInterval(nextHeroSlide, 4000);
   </script>
 

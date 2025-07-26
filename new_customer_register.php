@@ -19,18 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-    // Hash the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Connect to MySQL
     $conn = new mysqli("localhost", "root", "", "car_showroom");
 
-    // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Check for duplicate email
     $check = $conn->prepare("SELECT id FROM register_customer WHERE email = ?");
     $check->bind_param("s", $email);
     $check->execute();
@@ -55,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $conn->close();
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

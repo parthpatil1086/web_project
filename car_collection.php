@@ -1,15 +1,22 @@
 <?php
-// Database connection
 $conn = new mysqli("localhost", "root", "", "car_showroom");
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch all cars
 $sql = "SELECT * FROM cars ORDER BY id DESC";
+
+$search = "";
+  if (isset($_GET['search'])) {
+      $search = $conn->real_escape_string($_GET['search']);
+      $sql = "SELECT * FROM cars WHERE name LIKE '%$search%' ORDER BY id DESC";
+  } else {
+      $sql = "SELECT * FROM cars ORDER BY id DESC";
+  }
+
 $result = $conn->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -136,7 +143,16 @@ $result = $conn->query($sql);
 
   <h1>Explore Our Car Collection</h1>
 
+  <form method="GET" action="" style="text-align: center; margin-bottom: 30px;">
+  <input type="text" name="search" placeholder="Search by car name..." value="<?php echo htmlspecialchars($search); ?>"
+         style="padding: 10px; width: 250px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc;">
+  <button type="submit" style="padding: 10px 16px; background-color: #1b1f3a; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+    Search
+  </button>
+</form>
+
   <div class="car-grid">
+  <?php if ($result->num_rows > 0): ?>
     <?php while($row = $result->fetch_assoc()) { ?>
       <div class="car-card">
         <div class="car-image">
@@ -150,7 +166,13 @@ $result = $conn->query($sql);
         </div>
       </div>
     <?php } ?>
-  </div>
+  <?php else: ?>
+    <div style="grid-column: 1 / -1; text-align: center; font-size: 18px; color: blacks; font-weight: bold;">
+      No cars found matching "<?php echo htmlspecialchars($search); ?>".
+    </div>
+  <?php endif; ?>
+</div>
+
 
 </body>
 </html>

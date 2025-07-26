@@ -28,7 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['car_id'])) {
     }
 }
 
-// Get car ID from URL
 $car_id = isset($_GET['id']) ? intval($_GET['id']) : (isset($_POST['car_id']) ? intval($_POST['car_id']) : 0);
 
 $sql = "SELECT * FROM cars WHERE id = $car_id";
@@ -38,6 +37,7 @@ if (!$car) {
     die("Car not found.");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -200,9 +200,9 @@ if (!$car) {
       <h2>Booking Form</h2>
 
       <?php if ($booking_success): ?>
-        <div class="message success">✅ Booking successful! Thank you for booking, <?php echo htmlspecialchars($name); ?>.</div>
+        <script>alert('Booking successful! Thank you for booking') </script>; 
       <?php elseif ($booking_error): ?>
-        <div class="message error">❌ <?php echo $booking_error; ?></div>
+        <script>alert('message error') </script>; 
       <?php endif; ?>
 
       <form method="POST" onsubmit="return validateForm()">
@@ -215,7 +215,7 @@ if (!$car) {
           <label for="phone">Phone Number:</label>
           <input type="tel" name="phone" id="phone" required>
         </div>
-        
+
         <div class="form-group">
           <label for="email">Email:</label>
           <input type="email" name="email" id="email" required>
@@ -274,5 +274,6 @@ if (!$car) {
     return true;
   }
 </script>
+
 </body>
 </html>

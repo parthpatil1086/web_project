@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
         if (file_exists($img_path)) unlink($img_path); // remove image
     }
 
-    // Delete from DB
     $conn->query("DELETE FROM cars WHERE id = $delete_id");
 }
 

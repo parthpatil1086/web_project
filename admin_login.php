@@ -1,23 +1,21 @@
 <?php
-// Start session
+
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get submitted values
     $username = trim($_POST['username']);
     $password = $_POST['password'];
 
     if (empty($username) || empty($password)) {
         echo "<script>alert('All fields are required.');</script>";
     } else {
-        // Connect to database
+        
         $conn = new mysqli("localhost", "root", "", "car_showroom");
 
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
-        // Prepare SQL statement
         $stmt = $conn->prepare("SELECT id, password FROM admin_users WHERE username = ?");
         $stmt->bind_param("s", $username);
         $stmt->execute();
@@ -28,7 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->fetch();
 
             if (password_verify($password, $hashed_password)) {
-                // Set session
                 $_SESSION['admin_id'] = $id;
                 $_SESSION['admin_name'] = $username;
 
@@ -47,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!-- HTML & CSS Login Form (same design) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
