@@ -517,7 +517,7 @@
       <div class="tile-box" style="background-image: url('https://www.livemint.com/lm-img/img/2025/07/18/600x338/investor_1735983197002_1752834788800.jpg');">Best Rates Guaranteed</div>
     </div>
   </section>
-
+  
   <section class="fade-up">
     <div class="popular-wrapper">
       <h2 class="popular-heading">POPULAR</h2>
@@ -616,5 +616,6 @@
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   </script>
+  
 </body>
 </html>

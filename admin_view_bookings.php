@@ -14,6 +14,7 @@ $sql = "SELECT b.*, c.name AS car_name
         FROM bookings b 
         JOIN cars c ON b.car_id = c.id 
         ORDER BY b.booked_at DESC";
+        
 $result = $conn->query($sql);
 ?>
 

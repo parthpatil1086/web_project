@@ -158,6 +158,7 @@ $result = $conn->query($sql);
         <div class="car-image">
           <img src="uploads/<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
         </div>
+
         <div class="car-info">
           <div class="car-name"><?php echo htmlspecialchars($row['name']); ?></div>
           <div class="car-price">₹<?php echo number_format($row['price'], 2); ?></div>
@@ -169,6 +170,7 @@ $result = $conn->query($sql);
   <?php else: ?>
     <div style="grid-column: 1 / -1; text-align: center; font-size: 18px; color: blacks; font-weight: bold;">
       No cars found matching "<?php echo htmlspecialchars($search); ?>".
+      
     </div>
   <?php endif; ?>
 </div>

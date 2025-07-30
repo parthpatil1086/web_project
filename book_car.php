@@ -194,11 +194,11 @@ if (!$car) {
 
     <div class="form-section">
       <h2>Booking Form</h2>
-
       <?php if ($booking_success): ?>
-        <script>alert('Booking successful! Thank you for booking') </script>; 
+        <script>alert('Booking successful! Thank you for booking') </script>;
+
       <?php elseif ($booking_error): ?>
-        <script>alert('message error') </script>; 
+        <script>alert('error !!!') </script>; 
       <?php endif; ?>
 
       <form method="POST" onsubmit="return validateForm()">

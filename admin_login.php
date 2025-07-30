@@ -37,7 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "<script>alert('Admin not found.');</script>";
         }
-
         $stmt->close();
         $conn->close();
     }
@@ -60,7 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       align-items: center;
       height: 100vh;
     }
-
     .login-box {
       background-color: #fff;
       padding: 40px;
